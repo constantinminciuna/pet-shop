@@ -1,12 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@page import="it.betacom.dao.AnimaleDao" %>
 
-</body>
-</html>
+<%
+int i = AnimaleDao.acquista(Integer.parseInt(request.getParameter("matricola")),Integer.parseInt(request.getParameter("id_cliente")));
+ if(i>0){ 	
+	 %><script>alert('Animale acquistato con successo.')</script><%
+	 response.sendRedirect("view/viewanimali.jsp");
+ }
+else
+%><script>alert('Errore.'); history.back();</script><%
+
+%>
+
+
+${u.getMatricola()} ${user.getIdCliente}

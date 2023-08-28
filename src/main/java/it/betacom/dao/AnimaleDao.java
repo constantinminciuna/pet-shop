@@ -187,4 +187,23 @@ public class AnimaleDao {
 		
 		return list;
 	}
+	
+	public static int acquista(int matricola, int id_cliente){
+		int status = 0;
+		
+		try{
+			Connection con = getConnection();
+			PreparedStatement ps=con.prepareStatement("update animale set id_cliente=? where matricola=?");
+			
+			ps.setInt(1,id_cliente);
+			ps.setInt(2,matricola);
+			
+			status = ps.executeUpdate();
+		}catch(Exception e){System.out.println(e);}
+		
+		if(status == 1) log.info("Aggiornamento animale");
+		else log.info("Errore aggiornamento animale");
+		
+		return status;
+	}
 }

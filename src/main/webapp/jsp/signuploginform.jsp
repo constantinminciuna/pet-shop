@@ -8,7 +8,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="titolo">Petshop Minciuna</div>
+	<div style="display: flex;flex-direction: column-reverse;">
+		<div class="titolo" style="margin-top: 0px">Petshop Minciuna</div>
+		<form action="../index.jsp">
+			<button style="color: white;width: 25%;margin-top: 10px;">Index</button>
+		</form>
+	</div>
 	
 	<div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
