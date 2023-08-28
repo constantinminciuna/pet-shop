@@ -7,14 +7,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 import it.betacom.bean.User;
 
 public class UserDao {
 	
-	static Logger log = LogManager.getLogger(UserDao.class);
+//	static Logger log = LogManager.getLogger(UserDao.class);
 	
 	public static Connection getConnection() {
 		Connection con = null;
@@ -49,8 +46,8 @@ public class UserDao {
 			status=ps.executeUpdate();
 		}catch(Exception e){System.out.println(e);}
 		
-		if(status == 1) log.info("Registrazione utente");
-		else log.info("Errore registrazione utente");
+//		if(status == 1) log.info("Registrazione utente");
+//		else log.info("Errore registrazione utente");
 		
 		return status;
 	}
@@ -155,8 +152,8 @@ public class UserDao {
 			status = ps.executeUpdate();
 		}catch(Exception e){System.out.println(e);}
 		
-		if(status == 1) log.info("Aggiornamento utente");
-		else log.info("Errore aggiornamento utente");
+//		if(status == 1) log.info("Aggiornamento utente");
+//		else log.info("Errore aggiornamento utente");
 		
 		return status;
 	}
@@ -171,8 +168,8 @@ public class UserDao {
 			status = ps.executeUpdate();
 		}catch(Exception e){System.out.println(e);}
 		
-		if(status == 1) log.info("Eliminazione utente");
-		else log.info("Errore eliminazione utente");
+//		if(status == 1) log.info("Eliminazione utente");
+//		else log.info("Errore eliminazione utente");
 
 		return status;
 	}

@@ -4,17 +4,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 import it.betacom.bean.Animale;
 
 public class AnimaleDao {
 	
-	static Logger log = LogManager.getLogger(AnimaleDao.class);
+//	static Logger log = LogManager.getLogger(AnimaleDao.class);
 	
 	public static Connection getConnection() {
 		Connection con = null;
@@ -44,8 +43,8 @@ public class AnimaleDao {
 			status=ps.executeUpdate();
 		}catch(Exception e){System.out.println(e);}
 		
-		if(status == 1) log.info("Registrazione animale");
-		else log.info("Errore registrazione animale");
+//		if(status == 1) log.info("Registrazione animale");
+//		else log.info("Errore registrazione animale");
 		
 		return status;
 	}
@@ -141,8 +140,8 @@ public class AnimaleDao {
 			status = ps.executeUpdate();
 		}catch(Exception e){System.out.println(e);}
 		
-		if(status == 1) log.info("Aggiornamento animale");
-		else log.info("Errore aggiornamento animale");
+//		if(status == 1) log.info("Aggiornamento animale");
+//		else log.info("Errore aggiornamento animale");
 		
 		return status;
 	}
@@ -157,8 +156,8 @@ public class AnimaleDao {
 			status = ps.executeUpdate();
 		}catch(Exception e){System.out.println(e);}
 
-		if(status == 1) log.info("Eliminazione animale");
-		else log.info("Errore eliminazione animale");
+//		if(status == 1) log.info("Eliminazione animale");
+//		else log.info("Errore eliminazione animale");
 		
 		return status;
 	}
@@ -168,7 +167,7 @@ public class AnimaleDao {
 		
 		try{
 			Connection con = getConnection();
-			PreparedStatement ps = con.prepareStatement("select * from animale where id_cliente = null");
+			PreparedStatement ps = con.prepareStatement("select * from animale where id_cliente is null and data_acquisto is null");
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()){
@@ -193,16 +192,20 @@ public class AnimaleDao {
 		
 		try{
 			Connection con = getConnection();
-			PreparedStatement ps=con.prepareStatement("update animale set id_cliente=? where matricola=?");
+			PreparedStatement ps=con.prepareStatement("update animale set id_cliente=?, data_acquisto=? where matricola=?");
+			
+			LocalDateTime ldt = LocalDateTime.now();
+	        String data_acquisto = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(ldt);
 			
 			ps.setInt(1,id_cliente);
-			ps.setInt(2,matricola);
+			ps.setString(2,data_acquisto);
+			ps.setInt(3,matricola);
 			
 			status = ps.executeUpdate();
 		}catch(Exception e){System.out.println(e);}
 		
-		if(status == 1) log.info("Aggiornamento animale");
-		else log.info("Errore aggiornamento animale");
+//		if(status == 1) log.info("Aggiornamento animale");
+//		else log.info("Errore aggiornamento animale");
 		
 		return status;
 	}

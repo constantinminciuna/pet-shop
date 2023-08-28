@@ -7,15 +7,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 import it.betacom.bean.ClienteShop;
-import it.betacom.bean.User;
 
 public class ClienteShopDao {
 	
-	static Logger log = LogManager.getLogger(ClienteShopDao.class);
+//	static Logger log = LogManager.getLogger(ClienteShopDao.class);
 	
 	public static Connection getConnection() {
 		Connection con = null;
@@ -44,8 +40,8 @@ public class ClienteShopDao {
 			status=ps.executeUpdate();
 		}catch(Exception e){System.out.println(e);}
 		
-		if(status == 1) log.info("Registrazione cliente");
-		else log.info("Errore registrazione cliente");
+//		if(status == 1) log.info("Registrazione cliente");
+//		else log.info("Errore registrazione cliente");
 		
 		return status;
 	}
@@ -112,8 +108,8 @@ public class ClienteShopDao {
 			status = ps.executeUpdate();
 		}catch(Exception e){System.out.println(e);}
 		
-		if(status == 1) log.info("Aggiornamento cliente");
-		else log.info("Errore aggiornamento cliente");
+//		if(status == 1) log.info("Aggiornamento cliente");
+//		else log.info("Errore aggiornamento cliente");
 		
 		return status;
 	}
@@ -128,8 +124,8 @@ public class ClienteShopDao {
 			status = ps.executeUpdate();
 		}catch(Exception e){System.out.println(e);}
 
-		if(status == 1) log.info("Eliminazione cliente");
-		else log.info("Errore eliminazione cliente");
+//		if(status == 1) log.info("Eliminazione cliente");
+//		else log.info("Errore eliminazione cliente");
 		
 		return status;
 	}
@@ -156,8 +152,8 @@ public class ClienteShopDao {
 			status=ps.executeUpdate();
 		}catch(Exception e){System.out.println(e);}
 		
-		if(status == 1) log.info("Registrazione cliente");
-		else log.info("Errore registrazione cliente");
+//		if(status == 1) log.info("Registrazione cliente");
+//		else log.info("Errore registrazione cliente");
 		
 		return status;
 	}

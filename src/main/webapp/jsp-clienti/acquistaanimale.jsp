@@ -1,7 +1,9 @@
-<%@page import="it.betacom.dao.AnimaleDao" %>
+<%@page import="it.betacom.dao.AnimaleDao, it.betacom.bean.*" %>
 
 <%
-int i = AnimaleDao.acquista(Integer.parseInt(request.getParameter("matricola")),Integer.parseInt(request.getParameter("id_cliente")));
+ClienteShop user = (ClienteShop) session.getAttribute("user");
+
+int i = AnimaleDao.acquista(Integer.parseInt(request.getParameter("matricola")),user.getIdCliente());
  if(i>0){ 	
 	 %><script>alert('Animale acquistato con successo.')</script><%
 	 response.sendRedirect("view/viewanimali.jsp");
@@ -10,6 +12,3 @@ else
 %><script>alert('Errore.'); history.back();</script><%
 
 %>
-
-
-${u.getMatricola()} ${user.getIdCliente}

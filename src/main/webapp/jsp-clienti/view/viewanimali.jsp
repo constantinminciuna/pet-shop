@@ -31,9 +31,7 @@
 					<th>Matricola</th>
 					<th>Tipo</th>
 					<th>Nome</th>
-					<th>Data di acquisto</th>
 					<th>Prezzo</th>
-					<th>Id Cliente</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -43,10 +41,8 @@
 						<td>${u.getMatricola()}</td>
 						<td>${u.getTipoAnimale()}</td>
 						<td>${u.getNomeAnimale()}</td>
-						<td>${u.getDataAcquisto()}</td>
 						<td>${u.getPrezzo()}</td>
-						<td>${u.getClienteShop()}</td>
-						<td><a href="acquistaanimale.jsp?matricola=${u.getMatricola()}&id_cliente=${user.getIdCliente}">Acquista</a></td>
+						<td><a href="../acquistaanimale.jsp?matricola=${u.getMatricola()}">Acquista</a></td>
 					</tr>
 				</c:forEach>
 				<div style="display: flex;flex-direction: row;justify-content: center;align-items: center;"">
